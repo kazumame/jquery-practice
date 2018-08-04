@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+   <meta charset="utf-8">
+   <title>jQueryの練習</title>
+</head>
+<body>
+  <p>jQueryの練習</p>
+  <p>
+    <input type="text" name="name" id="name">
+    <input type="button" id="greet" value="Greet">
+  </p>
+  <!-- <button>もっと読む</button> -->
+  <div id="result"></div>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script>
+      //$(document).ready(function() {
+      $(function() {
+        // Ajax
+        // Asynchronous JavaScript + XML
+        // サーバと通信 +　ページの書き換え
+        // 非同期: 処理が終わる前に次の処理に移る
+        // $.post $.get
+        $('#greet').click(function() {
+          $.get('greet.php', {
+            name: $('#name').val()
+          }, function(data) {
+            $('#result').html(data);
+          });
+          /* $('#result').load('more.html', function() {
+            $('#message').css('color', 'red');
+          }); */
+          //$('#message').css('color', 'red');
+        });
+      });
+  </script>
+<body>
+</html>
